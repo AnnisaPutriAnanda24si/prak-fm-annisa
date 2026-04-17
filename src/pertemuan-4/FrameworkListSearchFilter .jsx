@@ -2,9 +2,25 @@ import frameworkData from "./framework.json";
 import { useState } from "react";
 
 export default function FrameworkList() {
-    const [searchTerm, setSearchTerm] = useState("");
-    const [selectedTag, setSelectedTag] = useState("");
-    const _searchTerm = searchTerm.toLowerCase();
+    // const [searchTerm, setSearchTerm] = useState("");
+    // const [selectedTag, setSelectedTag] = useState("");
+    	/*Inisialisasi DataForm*/
+		const [dataForm, setDataForm] = useState({
+			searchTerm: "",
+			selectedTag: "",
+			/*Tambah state lain beserta default value*/
+			});
+		
+		/*Inisialisasi Handle perubahan nilai input form*/
+		const handleChange = (evt) => {
+			const { name, value } = evt.target;
+			setDataForm({
+				...dataForm,
+				[name]: value,
+			});
+		};
+
+    const _searchTerm = dataForm.searchTerm.toLowerCase();
     const filteredFrameworks = frameworkData.filter((framework) => {
         const matchesSearch =
             framework.name
@@ -14,7 +30,7 @@ export default function FrameworkList() {
                 .toLowerCase()
                 .includes(_searchTerm);
 
-        const matchesTag = selectedTag ? framework.tags.includes(selectedTag) : true;
+        const matchesTag = dataForm.selectedTag ? framework.tags.includes(dataForm.selectedTag) : true;
         return matchesSearch && matchesTag;
     });
     const allTags = [
@@ -27,16 +43,18 @@ export default function FrameworkList() {
             {/* Menggunakan Grid agar layout lebih rapi di layar lebar */}
             <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
                 <input
-                    onChange={(e) => setSearchTerm(e.target.value)}
+                    // onChange={(e) => setSearchTerm(e.target.value)}
                     type="text"
                     name="searchTerm"
+                    onChange={handleChange}
                     placeholder="Search framework..."
                     className="w-full p-2 border border-gray-300 rounded mb-4"
                 />
 
                 <select
-                    onChange={(e) => setSelectedTag(e.target.value)}
+                    onChange ={(e) => setSelectedTag(e.target.value)}
                     name="selectedTag"
+                    onChange = {handleChange}
                     className="w-full p-2 border border-gray-300 rounded mb-4"
                 >
                     <option value="">All Tags</option>

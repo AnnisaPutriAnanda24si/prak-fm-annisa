@@ -1,12 +1,12 @@
-import { MdDashboard, MdDetails, MdLabel, MdList, MdPeople } from "react-icons/md";
+import { MdDashboard, MdDetails, MdLabel, MdList, MdPeople, MdError, MdPersonOff, MdLock, MdNoAccounts } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 
-    const menuClass = ({ isActive }) =>
-        `flex cursor-pointer items-center rounded-xl p-4  space-x-2
-        ${isActive ? 
-            "text-hijau bg-green-200 font-extrabold" : 
-            "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
-        }`
+const menuClass = ({ isActive }) =>
+    `flex cursor-pointer items-center rounded-xl p-4  space-x-2
+        ${isActive ?
+        "text-hijau bg-green-200 font-extrabold" :
+        "text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+    }`
 
 export default function Sidebar() {
     return (
@@ -22,27 +22,45 @@ export default function Sidebar() {
             {/* List Menu */}
             <div id="sidebar-menu" className="mt-10">
                 <ul id="menu-list" className="space-y-3">
+                    {/* ... Menu Dashboard, Orders, Customers tetap ada ... */}
                     <li>
-                        <NavLink id="menu-1"
-                            to="/"
-                            className={menuClass}>
+                        <NavLink id="menu-1" to="/" className={menuClass}>
                             <MdDashboard className="mr-4 text-xl" />
                             <span>Dashboard</span>
-
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink id="menu-2"
-                            to="/orders"
-                            className={menuClass}>                            <MdList className="mr-4 text-xl" />
+                        <NavLink id="menu-2" to="/orders" className={menuClass}>
+                            <MdList className="mr-4 text-xl" />
                             <span>Orders</span>
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink id="menu-3"
-                            to="/customers"
-                            className={menuClass}>                            <MdPeople className="mr-4 text-xl" />
+                        <NavLink id="menu-3" to="/customers" className={menuClass}>
+                            <MdPeople className="mr-4 text-xl" />
                             <span>Customers</span>
+                        </NavLink>
+                    </li>
+
+                    {/* MENU ERROR BARU */}
+                    <hr className="my-4 border-gray-100" /> {/* Garis pembatas biar rapi */}
+
+                    <li>
+                        <NavLink id="menu-4" to="/error-400" className={menuClass}>
+                            <MdError className="mr-4 text-xl text-orange-500" />
+                            <span>Bad Request (400)</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink id="menu-5" to="/error-401" className={menuClass}>
+                            <MdPersonOff className="mr-4 text-xl text-red-400" />
+                            <span>Unauthorized (401)</span>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink id="menu-6" to="/error-403" className={menuClass}>
+                            <MdLock className="mr-4 text-xl text-red-600" />
+                            <span>Forbidden (403)</span>
                         </NavLink>
                     </li>
                 </ul>

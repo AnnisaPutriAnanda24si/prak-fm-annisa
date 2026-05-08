@@ -1,33 +1,45 @@
 import "./assets/tailwind.css";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
-import Orders from "./pages/Orders";
-import Customers from "./pages/Customers";
-import NotFound from "./components/NotFound";
-import OrdersTable from "./components/OrdersTable";
-import CustomersTable from "./components/CustomersTable";
-import { Routes, Route } from "react-router-dom";
-import ErrorPage from "./components/ErrorPage";
-// Ganti yang tadinya FaBomb dll jadi ini:
+import React, { Suspense } from "react";
 import { MdReport, MdNoAccounts, MdGppBad, MdHelpOutline } from "react-icons/md";
+import { Routes, Route } from "react-router-dom";
+
+const Sidebar = React.lazy(() => import("./components/Sidebar"))
+// import Sidebar from "./components/Sidebar";
+const Header = React.lazy(() => import("./components/Header"))
+// import Header from "./components/Header";
+const NotFound = React.lazy(() => import("./components/NotFound"))
+// import NotFound from "./components/NotFound";
+const OrdersTable = React.lazy(() => import("./components/OrdersTable"))
+// import OrdersTable from "./components/OrdersTable";
+const CustomersTable = React.lazy(() => import("./components/CustomersTable"))
+// import CustomersTable from "./components/CustomersTable";
+const ErrorPage = React.lazy(() => import("./components/ErrorPage"))
+// import ErrorPage from "./components/ErrorPage";
+
+import MainLayout from "./layouts/MainLayout";
+import AuthLayout from "./layouts/AuthLayouts";
+import Loading from "./components/Loading";
+
+const Dashboard = React.lazy(() => import("./pages/Dashboard"))
+// import Dashboard from "./pages/Dashboard";
+const Orders = React.lazy(() => import("./pages/Orders"))
+// import Orders from "./pages/Orders";
+const Customers = React.lazy(() => import("./pages/Customers"))
+// import Customers from "./pages/Customers";
+const Login = React.lazy(() => import("./pages/Auth/Login"))
+// import Login from "./pages/Auth/Login";
+const Register = React.lazy(() => import("./pages/Auth/Register"))
+// import Register from "./pages/Auth/Register";
+const Forgot = React.lazy(() => import("./pages/Auth/Forgot"))
+// import Forgot from "./pages/Auth/Forgot";
+
 
 function App() {
   return (
-    <div id="app-container" className="bg-gray-100 min-h-screen flex">
-      {/* 1. Sidebar tetap di samping */}
-      <Sidebar />
 
-      {/* 2. Main content menggunakan flex-col tanpa padding di sini */}
-      <div id="main-content" className="flex-1 flex flex-col">
-        
-        {/* 3. Header harus di luar div padding agar bisa full width ke samping */}
-        <Header />
-
-        {/* 4. Baru di bagian konten (Routes) kita biarkan Dashboard yang atur paddingnya */}
-        <main className="flex-1">
-          <Routes>
-            
+    <Suspense fallback={<Loading/>}>
+                <Routes>
+            <Route element={<MainLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Customers />} />
@@ -67,12 +79,20 @@ function App() {
                     errorIcon={<MdHelpOutline />} 
                 />
             } />
+            
+            </Route>
+            
 
+              <Route element={<AuthLayout/>}>
+                <Route path="/login" element={<Login />} />
+                <Route path="/register" element={<Register/>} />
+                <Route path="/forgot" element={<Forgot/>} />
+            </Route>
           </Routes>
-        </main>
-        
-      </div>
-    </div>
+    </Suspense>
+
+
+
   );
 }
 

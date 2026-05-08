@@ -4,8 +4,7 @@ import OrdersTable from "../components/OrdersTable";
 
 export default function Orders() {
     return (
-        <div id="orders-container"
-        className="p-6 space-y-6">
+        <div id="orders-container">
 <PageHeader
     title="Orders"
     breadcrumb="Dashboard / Orders"

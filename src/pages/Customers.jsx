@@ -4,8 +4,7 @@ import CustomersTable from "../components/CustomersTable";
 
 export default function Customers() {
     return (
-        <div id="customer-container"
-            className="p-6 space-y-6">
+        <div id="customer-container">
             <PageHeader
                 title="Customers"
                 breadcrumb="Dashboard / Customers"

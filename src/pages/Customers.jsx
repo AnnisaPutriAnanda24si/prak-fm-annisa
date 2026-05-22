@@ -1,5 +1,5 @@
 import { FaUsers, FaUserCheck, FaUserPlus } from "react-icons/fa";
-import PageHeader from "../components/pageHeader";
+import PageHeader from "../components/PageHeader";
 import CustomersTable from "../components/CustomersTable";
 
 export default function Customers() {

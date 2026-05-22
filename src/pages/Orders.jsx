@@ -1,6 +1,7 @@
 import { FaBox, FaClock, FaCheckCircle } from "react-icons/fa";
 import PageHeader from "../components/pageHeader";
 import OrdersTable from "../components/OrdersTable";
+import product from '../data/products.json';
 
 export default function Orders() {
     return (

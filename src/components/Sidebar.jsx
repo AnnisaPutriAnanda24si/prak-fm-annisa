@@ -41,6 +41,12 @@ export default function Sidebar() {
                             <span>Customers</span>
                         </NavLink>
                     </li>
+                    <li>
+                        <NavLink id="menu-3" to="/products" className={menuClass}>
+                            <MdLabel className="mr-4 text-xl" />
+                            <span>Product</span>
+                        </NavLink>
+                    </li>
 
                     {/* MENU ERROR BARU */}
                     <hr className="my-4 border-gray-100" /> {/* Garis pembatas biar rapi */}

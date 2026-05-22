@@ -20,18 +20,23 @@ import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayouts";
 import Loading from "./components/Loading";
 
+
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
 // import Dashboard from "./pages/Dashboard";
 const Orders = React.lazy(() => import("./pages/Orders"))
 // import Orders from "./pages/Orders";
 const Customers = React.lazy(() => import("./pages/Customers"))
 // import Customers from "./pages/Customers";
+const Produk = React.lazy(() => import("./pages/Produk"))
+// import Products from "./pages/Products";
 const Login = React.lazy(() => import("./pages/Auth/Login"))
 // import Login from "./pages/Auth/Login";
 const Register = React.lazy(() => import("./pages/Auth/Register"))
 // import Register from "./pages/Auth/Register";
 const Forgot = React.lazy(() => import("./pages/Auth/Forgot"))
 // import Forgot from "./pages/Auth/Forgot";
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
+
 
 
 function App() {
@@ -39,10 +44,12 @@ function App() {
 
     <Suspense fallback={<Loading/>}>
                 <Routes>
-            <Route element={<MainLayout />}>
+            <Route element={<MainLayout />}> 
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Customers />} />
+            <Route path="/products" element={<Produk />} />
+            <Route path="/products/:id" element={<ProductDetail />} /> 
 
             <Route path="/error-400" element={
                 <ErrorPage 

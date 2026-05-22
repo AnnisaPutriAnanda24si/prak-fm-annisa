@@ -1,5 +1,5 @@
 import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
-import PageHeader from "../components/pageHeader";
+import PageHeader from "../components/PageHeader";
 import RecentOrders from "../components/RecentOrders";
 
 export default function Dashboard() {

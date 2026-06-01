@@ -8,7 +8,7 @@ export default function Dashboard() {
             <PageHeader
                 title="Dashboard"
                 breadcrumb="Dashboard" />
-            <div id="dashboard-grid" className="p-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
+            <div id="dashboard-grid" className="pt-4 pb-4 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
 
                 <div id="dashboard-orders" className="flex items-center space-x-5 bg-white rounded-lg shadow-md p-4 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl cursor-pointer">
                     <div id="orders-icon" className="bg-hijau rounded-full p-4 text-3xl text-white">

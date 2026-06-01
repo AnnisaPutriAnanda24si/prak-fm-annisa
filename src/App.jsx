@@ -1,5 +1,5 @@
 import "./assets/tailwind.css";
-import React, { Suspense } from "react";
+import React, { Component, Suspense } from "react";
 import { MdReport, MdNoAccounts, MdGppBad, MdHelpOutline } from "react-icons/md";
 import { Routes, Route } from "react-router-dom";
 
@@ -20,7 +20,6 @@ import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayouts";
 import Loading from "./components/Loading";
 
-
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
 // import Dashboard from "./pages/Dashboard";
 const Orders = React.lazy(() => import("./pages/Orders"))
@@ -36,7 +35,8 @@ const Register = React.lazy(() => import("./pages/Auth/Register"))
 const Forgot = React.lazy(() => import("./pages/Auth/Forgot"))
 // import Forgot from "./pages/Auth/Forgot";
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
-
+// import Components from "./pages/Components";
+const Components = React.lazy(() => import("./pages/Components"))
 
 
 function App() {
@@ -49,6 +49,7 @@ function App() {
             <Route path="/orders" element={<Orders />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/products" element={<Produk />} />
+            <Route path="/components" element={<Components />} />
             <Route path="/products/:id" element={<ProductDetail />} /> 
 
             <Route path="/error-400" element={

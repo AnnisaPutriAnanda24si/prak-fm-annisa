@@ -7,7 +7,7 @@ export default function OrderModal({ isOpen, onClose, title, children }) {
             <div className="bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 transform transition-all">
                 <div className="flex justify-between items-center mb-4">
                     <h3 className="text-xl font-bold text-gray-800">
-                        {title || "Modal Title"} {/* Judul Dinamis */}
+                        {title || "Modal Title"}
                     </h3>
                     <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
                 </div>

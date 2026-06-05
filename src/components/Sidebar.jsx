@@ -1,3 +1,4 @@
+import { AiFillBulb } from "react-icons/ai"; 
 import { MdDashboard, MdDetails, MdLabel, MdList, MdPeople, MdError, MdPersonOff, MdLock, MdNoAccounts } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
 
@@ -49,7 +50,7 @@ export default function Sidebar() {
                     </li>
                                         <li>
                         <NavLink id="menu-4" to="/fitur-xyz" className={menuClass}>
-                            <MdLabel className="mr-4 text-xl" />
+                            <AiFillBulb className="mr-4 text-xl"/>
                             <span>Fitur XYZ</span>
                         </NavLink>
                     </li>

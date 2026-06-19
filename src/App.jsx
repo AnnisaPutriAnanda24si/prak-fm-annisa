@@ -19,6 +19,7 @@ const ErrorPage = React.lazy(() => import("./components/ErrorPage"))
 import MainLayout from "./layouts/MainLayout";
 import AuthLayout from "./layouts/AuthLayouts";
 import Loading from "./components/Loading";
+import Note from "./pages/Note";
 
 const Dashboard = React.lazy(() => import("./pages/Dashboard"))
 // import Dashboard from "./pages/Dashboard";
@@ -52,6 +53,7 @@ function App() {
             <Route path="/products" element={<Produk />} />
             <Route path="/components" element={<Components />} />
             <Route path="/fitur-xyz" element={<FiturXYZ />} />
+            <Route path="/note" element={<Note/>} />
             <Route path="/products/:id" element={<ProductDetail />} /> 
 
             <Route path="/error-400" element={

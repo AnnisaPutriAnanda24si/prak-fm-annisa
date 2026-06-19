@@ -54,6 +54,12 @@ export default function Sidebar() {
                             <span>Fitur XYZ</span>
                         </NavLink>
                     </li>
+                                                            <li>
+                        <NavLink id="menu-4" to="/note" className={menuClass}>
+                            <AiFillBulb className="mr-4 text-xl"/>
+                            <span>Note</span>
+                        </NavLink>
+                    </li>
 
                     {/* MENU ERROR BARU */}
                     <hr className="my-4 border-gray-100" /> {/* Garis pembatas biar rapi */}
